@@ -40,3 +40,40 @@ a {
     }
   }
 }
+
+.burger-menu {
+  display: none;
+}
+
+@media (min-width: 320px) and (max-width: 1000px) {
+  .grid-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .burger-menu {
+    display: unset;
+    .menu-button {
+      color: $menu-text;
+    }
+  }
+
+  .burger-menu-items {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    a {
+      padding-left: 12px;
+      line-height: 50px;
+      color: $menu-text;
+      font-size: 16px;
+      height: 50px;
+      width: 250px;
+    }
+  }
+}

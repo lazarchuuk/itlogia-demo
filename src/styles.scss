@@ -21,10 +21,27 @@ body {
   grid-gap: 60px 24px;
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 1000px) and (max-width: 1200px) {
   .grid-container {
+    max-width: 1000px;
     grid-template-columns: repeat(12, 1fr); /* Responsive columns */
     grid-gap: 16px; /* Smaller gap for smaller screens */
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1000px) {
+  .grid-container {
+    max-width: 600px;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 8px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 600px) {
+  .grid-container {
+    max-width: 380px;
+    grid-template-columns: 1fr;
+    grid-gap: 0;
   }
 }
 

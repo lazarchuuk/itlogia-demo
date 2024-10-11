@@ -69,8 +69,7 @@ p {
 }
 
 .pizza-container {
-  margin-top: 160px;
-  margin-bottom: 240px;
+  margin: 160px 0 240px;
 }
 
 .block-heading {
@@ -121,5 +120,96 @@ pc-pizza-card {
 
   img {
     width: 145%;
+  }
+}
+
+
+@media (min-width: 600px) and (max-width: 1000px) {
+  main {
+    padding: 64px 0;
+  }
+
+  .text {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .welcome-image {
+    display: none;
+  }
+
+  .block-heading {
+    margin: 12px;
+  }
+
+  .pizza-container {
+    margin: 48px 0 36px;
+
+    pc-pizza-card {
+      grid-column: span 1;
+    }
+  }
+
+  .form-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+
+    .form-text {
+      grid-column: 1 / -1;
+      gap: 36px;
+    }
+
+    .form {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .form-image {
+    display: none;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 600px) {
+  main {
+    padding: 64px 0;
+  }
+
+  .text {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .welcome-image {
+    display: none;
+  }
+
+  .block-heading {
+    margin: 12px;
+  }
+
+  .pizza-container {
+    margin: 48px 0 36px;
+  }
+
+  .form-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+
+    .form-text {
+      grid-column: 1 / -1;
+      gap: 36px;
+    }
+
+    .form {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .form-image {
+    display: none;
   }
 }
