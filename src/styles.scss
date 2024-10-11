@@ -1,3 +1,4 @@
+@import '@angular/material/prebuilt-themes/azure-blue.css';
 * {
   font-family: "Montserrat", sans-serif;
 }
@@ -13,16 +14,11 @@ body {
 }
 
 .grid-container {
-  max-width: 1200px; /* Maximum width for content */
-  width: 100%; /* Ensures responsiveness on smaller screens */
-  display: grid;
-  grid-template-columns: repeat(12, 78px); /* 12 columns, each 78px wide */
-  grid-gap: 24px; /* 24px gap between columns */
-}
-
-.container {
   max-width: 1200px;
   width: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 78px);
+  grid-gap: 60px 24px;
 }
 
 @media (max-width: 1200px) {
@@ -31,3 +27,6 @@ body {
     grid-gap: 16px; /* Smaller gap for smaller screens */
   }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,40 @@
+@import "variables";
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 330px;
+  gap: 24px;
+}
+
+input {
+  border: 1px solid $default;
+  height: 58px;
+  color: $brown;
+  font-size: 18px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+input:focus {
+  outline: solid $accent !important;
+}
+
+::placeholder {
+  color: $placeholder;
+}
+
+.phone-field {
+  height: 85px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  input.error {
+    border: 1px solid #c20c0c
+  }
+
+  .error {
+    color: #c20c0c;
+  }
+}

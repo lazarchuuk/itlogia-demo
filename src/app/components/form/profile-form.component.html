@@ -1,0 +1,34 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <input
+    type="text"
+    formControlName="name"
+    placeholder="Ваше имя"
+    (keydown)="onKeyDown($event)"
+  >
+
+  <input
+    type="text"
+    formControlName="address"
+    placeholder="Адрес доставки">
+
+  <div class="phone-field">
+    <input
+      type="tel"
+      formControlName="phone"
+      [class.error]="!phoneControl.untouched && phoneControl.hasError('pattern')"
+      placeholder="Телефон">
+
+    @if(!phoneControl.untouched && phoneControl.hasError('pattern')) {
+      <span class="error">Некорректный номер телефона</span>
+    }
+  </div>
+
+
+  <pc-button
+    type="submit"
+    name="Оформить заказ"
+    [styles]="customButtonSize"
+    [disabled]="!profileForm.valid"
+    (click)="onSubmit()"
+  ></pc-button>
+</form>
