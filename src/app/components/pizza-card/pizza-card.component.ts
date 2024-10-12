@@ -21,11 +21,6 @@ export class PizzaCardComponent {
   src = computed(() => `assets/images/pizza/${this.pizza()?.img}`);
   dialog = inject(MatDialog);
 
-  customButtonSize = {
-    width: '242px',
-    height: '50px',
-  }
-
   openImage() {
     if (this.imagePreview) {
       this.dialog.open(this.imagePreview, {

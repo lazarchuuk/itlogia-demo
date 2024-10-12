@@ -13,7 +13,8 @@ import {NgStyle} from '@angular/common';
 export class ButtonComponent {
   name = input<string>();
   disabled = input<boolean>(false);
-  styles = input<{ [key: string]: string }>({});
+  width = input<number>(224);
+  height = input<number>(60);
   click = output();
 
   onClick() {

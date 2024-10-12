@@ -35,7 +35,12 @@ input:focus {
     border: 1px solid #c20c0c
   }
 
-  .error {
+  span.error {
     color: #c20c0c;
   }
+}
+
+.message {
+  padding: 50px;
+  text-align: center;
 }

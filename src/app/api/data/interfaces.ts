@@ -7,5 +7,5 @@ export interface Pizza {
 export interface User {
   name: string;
   address: string;
-  phone: number;
+  phone: string;
 }

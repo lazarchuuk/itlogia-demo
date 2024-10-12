@@ -1,6 +1,7 @@
 <button
-  [ngStyle]="styles()"
   [disabled]="disabled()"
+  [style.width.px]="width()"
+  [style.height.px]="height()"
   (click)="onClick()">
   {{name()}}
 </button>

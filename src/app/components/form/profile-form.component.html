@@ -27,8 +27,21 @@
   <pc-button
     type="submit"
     name="Оформить заказ"
-    [styles]="customButtonSize"
-    [disabled]="!profileForm.valid"
-    (click)="onSubmit()"
+    [width]="330"
+    [height]="60"
+    [disabled]="!profileForm.valid || loading()"
   ></pc-button>
 </form>
+
+
+<ng-template #successMessage>
+  <p class="message">Спасибо за заказ</p>
+
+  <mat-dialog-actions>
+    <pc-button
+      name="OK"
+      [width]="100"
+      [height]="40"
+      (click)="closeMessage()" />
+  </mat-dialog-actions>
+</ng-template>

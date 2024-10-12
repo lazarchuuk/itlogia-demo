@@ -1,19 +1,25 @@
-import {AfterViewInit, Component, computed, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, inject, signal, TemplateRef, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {ButtonComponent} from '../button/button.component';
-import {PizzaApiService} from '../../api/pizza-api.service';
+import {UserApiService} from '../../api/user-api.service';
+import {User} from '../../api/data/interfaces';
+import {MatDialog, MatDialogActions} from '@angular/material/dialog';
+import {switchMap} from 'rxjs';
 
 @Component({
   selector: 'pc-profile-form',
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    ButtonComponent
+    ButtonComponent,
+    MatDialogActions
   ],
   templateUrl: './profile-form.component.html',
   styleUrl: './profile-form.component.scss'
 })
 export class ProfileFormComponent {
+  @ViewChild('successMessage') successMessage!: TemplateRef<any>;
+
   profileForm = new FormGroup({
       name: new FormControl('', [Validators.required]),
       address: new FormControl('', [Validators.required]),
@@ -21,13 +27,11 @@ export class ProfileFormComponent {
     }
   )
   phoneControl = this.profileForm.controls.phone;
+  dialog = inject(MatDialog);
 
-  constructor(private readonly pizzaApiService: PizzaApiService) {
-  }
+  loading = signal(false);
 
-  readonly customButtonSize = {
-    width: '330px',
-    height: '60px',
+  constructor(private readonly userApiService: UserApiService) {
   }
 
   onKeyDown($event: KeyboardEvent) {
@@ -36,7 +40,23 @@ export class ProfileFormComponent {
   }
 
   onSubmit() {
+    this.loading.set(true);
     const userData = this.profileForm.getRawValue();
 
+    this.userApiService.saveUser(userData as User)
+      .pipe(switchMap(() =>
+        this.dialog.open(this.successMessage, {
+          width: '500px',
+          maxWidth: '500px',
+          height: '230px'
+        }).afterClosed()
+      ))
+      .subscribe(() => {
+        this.loading.set(false);
+      })
+  }
+
+  closeMessage() {
+    this.dialog.closeAll();
   }
 }
