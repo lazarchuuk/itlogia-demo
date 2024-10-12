@@ -1,0 +1,215 @@
+@import "variables";
+
+main {
+  padding: 130px 0 105px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.welcome-text {
+  grid-column: 1 / span 7;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.text {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+.welcome-image {
+  grid-column: 8 / -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 100%;
+  }
+}
+
+.heading {
+  grid-column: span 7;
+  font-weight: 800;
+  font-size: 43px;
+  margin: 0;
+}
+
+.text-light {
+  color: $accent;
+}
+
+.text-dark {
+  color: $default;
+}
+
+.point-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  h3 {
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: $accent;
+    margin: 0;
+    padding-bottom: 12px;
+  }
+}
+
+p {
+  font-size: 16px;
+  color: $default;
+  margin: 0;
+}
+
+.pizza-container {
+  margin: 160px 0 240px;
+}
+
+.block-heading {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  color: $section-heading;
+  font-size: 35px;
+  margin: 0;
+}
+
+.pizza-cards {
+  grid-column: 1 / -1;
+  gap: 24px;
+}
+
+pc-pizza-card {
+  grid-column: span 3;
+}
+
+.form-text {
+  grid-column: span 4;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+  justify-content: start;
+
+  h2 {
+    font-weight: 800;
+    font-size: 32px;
+    margin: 0;
+  }
+
+  p {
+    line-height: 24px;
+  }
+}
+
+.form {
+  grid-column: 6 / span 3;
+  display: flex;
+  align-items: flex-end;
+}
+
+.form-image {
+  grid-column: 10 / -1;
+  grid-row: 1 / span 2;
+
+  img {
+    width: 145%;
+  }
+}
+
+
+@media (min-width: 600px) and (max-width: 1100px) {
+  main {
+    padding: 64px 0;
+  }
+
+  .text {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .welcome-image {
+    display: none;
+  }
+
+  .block-heading {
+    margin: 12px;
+  }
+
+  .pizza-container {
+    margin: 48px 0 36px;
+
+    pc-pizza-card {
+      grid-column: span 1;
+    }
+  }
+
+  .form-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+
+    .form-text {
+      grid-column: 1 / -1;
+      gap: 36px;
+    }
+
+    .form {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .form-image {
+    display: none;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 600px) {
+  main {
+    padding: 64px 0;
+  }
+
+  .text {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .welcome-image {
+    display: none;
+  }
+
+  .block-heading {
+    margin: 12px;
+  }
+
+  .pizza-container {
+    margin: 48px 0 36px;
+  }
+
+  .form-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+
+    .form-text {
+      grid-column: 1 / -1;
+      gap: 36px;
+    }
+
+    .form {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .form-image {
+    display: none;
+  }
+}

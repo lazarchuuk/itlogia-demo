@@ -1,0 +1,29 @@
+@if (pizza()) {
+  <div class="card">
+    <div class="content">
+      <img [src]="src()" [alt]="pizza()?.name" (click)="openImage()">
+      <h5>{{ pizza()?.name }}</h5>
+      <p>{{ pizza()?.ingredients }}</p>
+    </div>
+
+    <pc-button
+      name="В корзину"
+      [width]="242"
+      [height]="50"
+    ></pc-button>
+  </div>
+}
+
+<ng-template #imagePreview>
+  <div mat-dialog-title>
+    <h2>{{ pizza()?.name }}</h2>
+  </div>
+
+  <div class="flex-container image-container">
+    <img [src]="src()" [alt]="pizza()?.name">
+  </div>
+
+  <mat-dialog-actions>
+    <pc-button (click)="closePreview()" name="OK"/>
+  </mat-dialog-actions>
+</ng-template>

@@ -1,0 +1,38 @@
+<header class="header">
+  <div class="grid-container">
+    <a href="/" class="logo" aria-label="Homepage">
+      <div class="flex-container">
+        <img src="../../../assets/images/logo.png" alt="Pizza Chef Logo" height="69" width="68">
+        <span class="logo-name">Pizza <br> Cheff</span>
+      </div>
+    </a>
+
+    <nav class="menu">
+      <div class="flex-container">
+        <a class="menu-item" href="/">Пиццы</a>
+        <a class="menu-item" href="/">Напитки</a>
+        <a class="menu-item" href="/">Доставка и оплата</a>
+        <a class="menu-item" href="/">Контакты</a>
+      </div>
+    </nav>
+
+
+    <div class="burger-menu">
+      <mat-icon class="menu-button"
+                [matMenuTriggerFor]="menu"
+                [fontIcon]="icon"
+                [@animateText]="icon"
+                (click)="icon = 'close'"
+      ></mat-icon>
+      <mat-menu #menu="matMenu" (closed)="icon = 'menu'">
+        <div class="burger-menu-items">
+          <a href="/">Пиццы</a>
+          <a href="/">Напитки</a>
+          <a href="/">Доставка и оплата</a>
+          <a href="/">Контакты</a>
+        </div>
+      </mat-menu>
+    </div>
+
+  </div>
+</header>
